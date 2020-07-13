@@ -104,3 +104,1195 @@ update clientes set cli_email=?, cli_apellido=?, cli_nombre=?, cli_password=? wh
 2020-07-13 02:33:22,592 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
 2020-07-13 02:33:22,594 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
 2020-07-13 02:33:22,600 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-07-13 03:23:36,137 INFO org.springframework.boot.StartupInfoLogger [main] Starting DvDs20201cG1ApplicationTests on DESKTOP-9AMUT3Q with PID 13744 (started by pablo in C:\Users\pablo\Documents\DA VINCI\Cuatrimestre 3\JAVA\dv-ds-20201c-g1)
+2020-07-13 03:23:36,139 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-13 03:23:36,140 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-07-13 03:23:37,419 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-13 03:23:37,525 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 94ms. Found 4 JPA repository interfaces.
+2020-07-13 03:23:38,463 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-13 03:23:38,479 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-07-13 03:23:38,721 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-07-13 03:23:38,816 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-13 03:23:38,911 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-07-13 03:23:39,150 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-13 03:23:39,631 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-07-13 03:23:40,770 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] drop table if exists clientes CASCADE 
+2020-07-13 03:23:40,772 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] drop table if exists orden_items CASCADE 
+2020-07-13 03:23:40,773 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] drop table if exists ordenes CASCADE 
+2020-07-13 03:23:40,773 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] drop table if exists productos CASCADE 
+2020-07-13 03:23:40,774 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] drop sequence if exists hibernate_sequence
+2020-07-13 03:23:40,778 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] create sequence hibernate_sequence start with 1 increment by 1
+2020-07-13 03:23:40,781 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] create table clientes (cli_id bigint not null, cli_email varchar(255), cli_apellido varchar(30) not null, cli_nombre varchar(30) not null, cli_password varchar(255) not null, primary key (cli_id))
+2020-07-13 03:23:40,788 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] create table orden_items (odi_id bigint not null, odi_cantidad decimal(19,2) not null, ori_ord_id bigint, odi_pro_id bigint, primary key (odi_id))
+2020-07-13 03:23:40,790 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] create table ordenes (ord_id bigint not null, ord_fecha date not null, ord_cli_id bigint, primary key (ord_id))
+2020-07-13 03:23:40,791 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] create table productos (pro_id bigint not null, pro_nombre varchar(45) not null, pro_precio decimal(19,2) not null, primary key (pro_id))
+2020-07-13 03:23:40,792 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table clientes add constraint UK7b87nbrm1jck1x3q1mj1nhj7b unique (cli_email)
+2020-07-13 03:23:40,797 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table orden_items add constraint FK1s91sn6abmwu84ac88ie8two foreign key (ori_ord_id) references ordenes
+2020-07-13 03:23:40,806 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table orden_items add constraint FKfrrxyiyy2sxkffpjwtullsvs foreign key (odi_pro_id) references productos
+2020-07-13 03:23:40,808 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [task-1] alter table ordenes add constraint FK7y5pdvi44a762psyo9xs61q53 foreign key (ord_cli_id) references clientes
+2020-07-13 03:23:40,813 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-13 03:23:40,823 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-13 03:23:41,610 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-13 03:23:42,264 WARN org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration [main] Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2020-07-13 03:23:42,847 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [main] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-07-13 03:23:42,922 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-07-13 03:23:43,119 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Spring Data repositories initialized!
+2020-07-13 03:23:43,139 INFO org.springframework.boot.StartupInfoLogger [main] Started DvDs20201cG1ApplicationTests in 7.461 seconds (JVM running for 8.586)
+2020-07-13 03:23:43,282 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [ar.edu.davinci.dvds20201cg1.modelo.ClienteTest], using SpringBootContextLoader
+2020-07-13 03:23:43,283 INFO org.springframework.test.context.support.AbstractContextLoader [main] Could not detect default resource locations for test class [ar.edu.davinci.dvds20201cg1.modelo.ClienteTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-07-13 03:23:43,284 INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [ar.edu.davinci.dvds20201cg1.modelo.ClienteTest]: ClienteTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-07-13 03:23:43,299 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration ar.edu.davinci.dvds20201cg1.DvDs20201cG1Application for test class ar.edu.davinci.dvds20201cg1.modelo.ClienteTest
+2020-07-13 03:23:43,302 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-07-13 03:23:43,303 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5f6e2ad9, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3212bfd, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1cc9bd9b, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2f471037, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1d1cfe4, org.springframework.test.context.transaction.TransactionalTestExecutionListener@ba562e0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5a51336a, org.springframework.test.context.event.EventPublishingTestExecutionListener@4d8056bf, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@42211e04, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6233c6c2, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@312a738d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7e50eeb9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@34cb0e49, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@48b2dbc4]
+2020-07-13 03:23:43,343 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [main] select cliente0_.cli_id as cli_id1_0_0_, cliente0_.cli_email as cli_emai2_0_0_, cliente0_.cli_apellido as cli_apel3_0_0_, cliente0_.cli_nombre as cli_nomb4_0_0_, cliente0_.cli_password as cli_pass5_0_0_ from clientes cliente0_ where cliente0_.cli_id=?
+2020-07-13 03:23:43,350 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [1] as [BIGINT] - [1]
+2020-07-13 03:23:43,381 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [main] select cliente0_.cli_id as cli_id1_0_0_, cliente0_.cli_email as cli_emai2_0_0_, cliente0_.cli_apellido as cli_apel3_0_0_, cliente0_.cli_nombre as cli_nomb4_0_0_, cliente0_.cli_password as cli_pass5_0_0_ from clientes cliente0_ where cliente0_.cli_id=?
+2020-07-13 03:23:43,382 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [1] as [BIGINT] - [1]
+2020-07-13 03:23:43,432 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [main] update clientes set cli_email=?, cli_apellido=?, cli_nombre=?, cli_password=? where cli_id=?
+2020-07-13 03:23:43,434 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [1] as [VARCHAR] - [abc@gmail.com]
+2020-07-13 03:23:43,434 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [2] as [VARCHAR] - [Gupta]
+2020-07-13 03:23:43,435 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [3] as [VARCHAR] - [Lokesh-Lokesh]
+2020-07-13 03:23:43,435 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [4] as [VARCHAR] - [abc]
+2020-07-13 03:23:43,436 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [5] as [BIGINT] - [1]
+2020-07-13 03:23:43,590 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [main] select cliente0_.cli_id as cli_id1_0_, cliente0_.cli_email as cli_emai2_0_, cliente0_.cli_apellido as cli_apel3_0_, cliente0_.cli_nombre as cli_nomb4_0_, cliente0_.cli_password as cli_pass5_0_ from clientes cliente0_
+2020-07-13 03:23:43,601 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [main] select cliente0_.cli_id as cli_id1_0_0_, cliente0_.cli_email as cli_emai2_0_0_, cliente0_.cli_apellido as cli_apel3_0_0_, cliente0_.cli_nombre as cli_nomb4_0_0_, cliente0_.cli_password as cli_pass5_0_0_ from clientes cliente0_ where cliente0_.cli_id=?
+2020-07-13 03:23:43,602 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [1] as [BIGINT] - [1]
+2020-07-13 03:23:43,609 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [main] select cliente0_.cli_id as cli_id1_0_0_, cliente0_.cli_email as cli_emai2_0_0_, cliente0_.cli_apellido as cli_apel3_0_0_, cliente0_.cli_nombre as cli_nomb4_0_0_, cliente0_.cli_password as cli_pass5_0_0_ from clientes cliente0_ where cliente0_.cli_id=?
+2020-07-13 03:23:43,610 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [1] as [BIGINT] - [1]
+2020-07-13 03:23:43,612 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [main] update clientes set cli_email=?, cli_apellido=?, cli_nombre=?, cli_password=? where cli_id=?
+2020-07-13 03:23:43,612 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [1] as [VARCHAR] - [xyz@email.com]
+2020-07-13 03:23:43,613 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [2] as [VARCHAR] - [Gupta]
+2020-07-13 03:23:43,613 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [3] as [VARCHAR] - [Lokesh-Lokesh]
+2020-07-13 03:23:43,614 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [4] as [VARCHAR] - [abc]
+2020-07-13 03:23:43,614 TRACE org.hibernate.type.descriptor.sql.BasicBinder [main] binding parameter [5] as [BIGINT] - [1]
+2020-07-13 03:23:43,616 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [main] SQL Error: 23505, SQLState: 23505
+2020-07-13 03:23:43,616 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [main] Violación de indice de Unicidad ó Clave primaria: "PUBLIC.UK7B87NBRM1JCK1X3Q1MJ1NHJ7B_INDEX_6 ON PUBLIC.CLIENTES(CLI_EMAIL) VALUES 2"
+Unique index or primary key violation: "PUBLIC.UK7B87NBRM1JCK1X3Q1MJ1NHJ7B_INDEX_6 ON PUBLIC.CLIENTES(CLI_EMAIL) VALUES 2"; SQL statement:
+update clientes set cli_email=?, cli_apellido=?, cli_nombre=?, cli_password=? where cli_id=? [23505-200]
+2020-07-13 03:23:43,685 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-13 03:23:43,686 INFO org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2020-07-13 03:23:43,687 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [SpringContextShutdownHook] drop table if exists clientes CASCADE 
+2020-07-13 03:23:43,691 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [SpringContextShutdownHook] drop table if exists orden_items CASCADE 
+2020-07-13 03:23:43,692 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [SpringContextShutdownHook] drop table if exists ordenes CASCADE 
+2020-07-13 03:23:43,694 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [SpringContextShutdownHook] drop table if exists productos CASCADE 
+2020-07-13 03:23:43,694 DEBUG org.hibernate.engine.jdbc.spi.SqlStatementLogger [SpringContextShutdownHook] drop sequence if exists hibernate_sequence
+2020-07-13 03:23:43,697 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-13 03:23:43,698 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-07-13 03:23:43,701 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-07-13 04:04:15,286 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting DvDs20201cG1Application on DESKTOP-9AMUT3Q with PID 8268 (C:\Users\pablo\Documents\DA VINCI\Cuatrimestre 3\JAVA\dv-ds-20201c-g1\target\classes started by pablo in C:\Users\pablo\Documents\DA VINCI\Cuatrimestre 3\JAVA\dv-ds-20201c-g1)
+2020-07-13 04:04:15,289 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-13 04:04:15,290 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-07-13 04:04:15,347 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-13 04:04:15,347 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-13 04:04:16,795 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-13 04:04:16,893 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 87ms. Found 4 JPA repository interfaces.
+2020-07-13 04:04:18,166 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8090 (http)
+2020-07-13 04:04:18,179 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8090"]
+2020-07-13 04:04:18,179 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-07-13 04:04:18,180 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-13 04:04:18,311 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-07-13 04:04:18,312 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2965 ms
+2020-07-13 04:04:18,574 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2020-07-13 04:04:18,849 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2020-07-13 04:04:18,855 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/dv-ds-20201c-g1?serverTimezone=UTC'
+2020-07-13 04:04:19,147 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-13 04:04:19,216 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-13 04:04:19,293 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-07-13 04:04:19,584 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-13 04:04:19,739 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-07-13 04:04:21,130 WARN org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl [task-1] GenerationTarget encountered exception accepting command : Error executing DDL "alter table orden_items add constraint FK1s91sn6abmwu84ac88ie8two foreign key (ori_ord_id) references ordenes (ord_id)" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table orden_items add constraint FK1s91sn6abmwu84ac88ie8two foreign key (ori_ord_id) references ordenes (ord_id)" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:433)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:249)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1249)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.sql.SQLException: Can't create table `dv-ds-20201c-g1`.`#sql-1f68_22` (errno: 150 "Foreign key constraint is incorrectly formed")
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 common frames omitted
+2020-07-13 04:04:21,201 WARN org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl [task-1] GenerationTarget encountered exception accepting command : Error executing DDL "alter table orden_items add constraint FKfrrxyiyy2sxkffpjwtullsvs foreign key (odi_pro_id) references productos (pro_id)" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table orden_items add constraint FKfrrxyiyy2sxkffpjwtullsvs foreign key (odi_pro_id) references productos (pro_id)" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:433)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:249)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1249)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.sql.SQLException: Can't create table `dv-ds-20201c-g1`.`#sql-1f68_22` (errno: 150 "Foreign key constraint is incorrectly formed")
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 common frames omitted
+2020-07-13 04:04:21,217 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-13 04:04:21,226 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-13 04:04:21,501 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] LiveReload server is running on port 35729
+2020-07-13 04:04:21,707 INFO ar.edu.davinci.dvds20201cg1.WebConfig [restartedMain] Template Resolver
+2020-07-13 04:04:21,709 INFO ar.edu.davinci.dvds20201cg1.WebConfig [restartedMain] Template Resolver result: org.thymeleaf.templateresolver.ClassLoaderTemplateResolver@658149e
+2020-07-13 04:04:21,716 INFO ar.edu.davinci.dvds20201cg1.WebConfig [restartedMain] Spring Template Engine
+2020-07-13 04:04:21,749 INFO ar.edu.davinci.dvds20201cg1.WebConfig [restartedMain] Spring Template Engine result: org.thymeleaf.spring5.SpringTemplateEngine@6bd3e189
+2020-07-13 04:04:21,756 INFO ar.edu.davinci.dvds20201cg1.WebConfig [restartedMain] View Resolver
+2020-07-13 04:04:21,760 INFO ar.edu.davinci.dvds20201cg1.WebConfig [restartedMain] View Resolver result: org.thymeleaf.spring5.view.ThymeleafViewResolver@4199f726
+2020-07-13 04:04:21,856 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-13 04:04:22,188 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [restartedMain] Adding welcome page template: index
+2020-07-13 04:04:22,904 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 13 endpoint(s) beneath base path '/actuator'
+2020-07-13 04:04:22,960 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8090"]
+2020-07-13 04:04:23,061 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8090 (http) with context path ''
+2020-07-13 04:04:23,063 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositoriesâ€¦
+2020-07-13 04:04:23,252 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-07-13 04:04:23,268 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started DvDs20201cG1Application in 8.575 seconds (JVM running for 9.196)
+2020-07-13 04:04:41,469 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8090-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-13 04:04:41,470 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8090-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-07-13 04:04:41,492 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8090-exec-1] Completed initialization in 22 ms
+2020-07-13 04:04:45,473 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-2] GET - showClientePage  - /cliente/list
+2020-07-13 04:04:45,659 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-2] clientes.size: 1
+2020-07-13 04:04:49,667 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-4] GET - showNewClientePage - /cliente/new
+2020-07-13 04:04:49,668 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-4] cliente: Cliente(id=null, name=null, lastName=null, email=null, password=null)
+2020-07-13 04:05:06,972 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-3] POST - saveCliente - /cliente/save
+2020-07-13 04:05:06,973 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-3] cliente: Cliente(id=null, name=Ariana, lastName=Torres, email=zorra@hotmail.com, password=1234)
+2020-07-13 04:05:07,079 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8090-exec-3] SQL Error: 1062, SQLState: 23000
+2020-07-13 04:05:07,079 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8090-exec-3] Duplicate entry '1' for key 'PRIMARY'
+2020-07-13 04:05:07,087 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8090-exec-3] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [PRIMARY]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement] with root cause
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1' for key 'PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1347)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3235)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3760)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:107)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.util.LinkedHashMap.forEach(Unknown Source)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1352)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:443)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3202)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2370)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:534)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:631)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:178)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy152.save(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy100.save(Unknown Source)
+	at ar.edu.davinci.dvds20201cg1.servicio.ClienteServicio.grabarCliente(ClienteServicio.java:62)
+	at ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador.saveCliente(ClienteSimpleControlador.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2020-07-13 04:05:39,581 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-5] GET - showClientePage  - /cliente/list
+2020-07-13 04:05:39,584 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-5] clientes.size: 1
+2020-07-13 04:05:43,144 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-6] GET - deleteCliente - cliente/delete/{id}
+2020-07-13 04:05:43,145 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-6] cliente: 1
+2020-07-13 04:05:43,211 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-7] GET - showClientePage  - /cliente/list
+2020-07-13 04:05:43,213 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-7] clientes.size: 0
+2020-07-13 04:05:46,436 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-8] GET - showNewClientePage - /cliente/new
+2020-07-13 04:05:46,436 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-8] cliente: Cliente(id=null, name=null, lastName=null, email=null, password=null)
+2020-07-13 04:05:57,682 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-9] POST - saveCliente - /cliente/save
+2020-07-13 04:05:57,683 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-9] cliente: Cliente(id=null, name=gfdsg, lastName=dfadf, email=fadsf@fdsaf.com, password=1243124)
+2020-07-13 04:05:57,711 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-10] GET - showClientePage  - /cliente/list
+2020-07-13 04:05:57,714 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-10] clientes.size: 1
+2020-07-13 04:06:03,769 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-1] GET - showNewClientePage - /cliente/new
+2020-07-13 04:06:03,769 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-1] cliente: Cliente(id=null, name=null, lastName=null, email=null, password=null)
+2020-07-13 04:06:17,857 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-2] POST - saveCliente - /cliente/save
+2020-07-13 04:06:17,858 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-2] cliente: Cliente(id=null, name=fadsfa, lastName=fadsfa, email=fasdfa@fasd, password=fads)
+2020-07-13 04:06:17,870 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-4] GET - showClientePage  - /cliente/list
+2020-07-13 04:06:17,873 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-4] clientes.size: 2
+2020-07-13 04:06:24,467 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-3] GET - showNewClientePage - /cliente/new
+2020-07-13 04:06:24,467 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-3] cliente: Cliente(id=null, name=null, lastName=null, email=null, password=null)
+2020-07-13 04:06:34,373 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-5] POST - saveCliente - /cliente/save
+2020-07-13 04:06:34,374 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-5] cliente: Cliente(id=null, name=fdfads, lastName=fadsf, email=fasd, password=dfa)
+2020-07-13 04:06:34,384 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8090-exec-5] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.transaction.TransactionSystemException: Could not commit JPA transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction] with root cause
+javax.validation.ConstraintViolationException: Validation failed for classes [ar.edu.davinci.dvds20201cg1.modelo.Cliente] during persist time for groups [javax.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='Por favor ingrese un email vÃ¡lido', propertyPath=email, rootBeanClass=class ar.edu.davinci.dvds20201cg1.modelo.Cliente, messageTemplate='Por favor ingrese un email vÃ¡lido'}
+]
+	at org.hibernate.cfg.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:140)
+	at org.hibernate.cfg.beanvalidation.BeanValidationEventListener.onPreInsert(BeanValidationEventListener.java:80)
+	at org.hibernate.action.internal.EntityInsertAction.preInsert(EntityInsertAction.java:227)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:100)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.util.LinkedHashMap.forEach(Unknown Source)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1352)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:443)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3202)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2370)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:534)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:631)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:178)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy152.save(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy100.save(Unknown Source)
+	at ar.edu.davinci.dvds20201cg1.servicio.ClienteServicio.grabarCliente(ClienteServicio.java:62)
+	at ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador.saveCliente(ClienteSimpleControlador.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2020-07-13 04:06:46,286 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-6] POST - saveCliente - /cliente/save
+2020-07-13 04:06:46,287 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-6] cliente: Cliente(id=null, name=fdfads, lastName=fadsf, email=fasd@fasdf.com, password=dfa)
+2020-07-13 04:06:46,319 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-7] GET - showClientePage  - /cliente/list
+2020-07-13 04:06:46,321 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-7] clientes.size: 3
+2020-07-13 04:06:50,840 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-8] GET - showEditClientePage - /cliente/edit/{id}
+2020-07-13 04:06:50,841 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-8] cliente: 3
+2020-07-13 04:07:02,040 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-9] POST - saveCliente - /cliente/save
+2020-07-13 04:07:02,041 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-9] cliente: Cliente(id=3, name=dfasdgaga, lastName=fadsfa, email=fasdfa@fasd, password=fads)
+2020-07-13 04:07:02,061 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-10] GET - showClientePage  - /cliente/list
+2020-07-13 04:07:02,065 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-10] clientes.size: 3
+2020-07-13 04:07:10,076 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-1] GET - viewHomePage - /index
+2020-07-13 04:07:12,647 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-2] GET - showClientePage  - /cliente/list
+2020-07-13 04:07:12,650 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-2] clientes.size: 3
+2020-07-13 04:08:34,519 WARN org.springframework.context.support.ResourceBundleMessageSource [http-nio-8090-exec-3] ResourceBundle [Messages] not found for MessageSource: Can't find bundle for base name Messages, locale es_419
+2020-07-13 04:08:34,520 WARN org.springframework.context.support.ResourceBundleMessageSource [http-nio-8090-exec-3] ResourceBundle [Messages] not found for MessageSource: Can't find bundle for base name Messages, locale es_419
+2020-07-13 04:08:48,794 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-9] GET - initFindForm: /cliente/buscar
+2020-07-13 04:09:00,557 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-2] GET - processFindForm: /clientes
+2020-07-13 04:09:00,558 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-2] cliente: Cliente(id=null, name=null, lastName=perez, email=null, password=null)
+2020-07-13 04:09:00,563 INFO ar.edu.davinci.dvds20201cg1.servicio.ClienteServicio [http-nio-8090-exec-2] buscarClienterPorApellido: apellido: perez
+2020-07-13 04:09:00,588 INFO ar.edu.davinci.dvds20201cg1.servicio.ClienteServicio [http-nio-8090-exec-2] clientes empty
+2020-07-13 04:09:00,589 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-2]  por lastName not null results.size: 0
+2020-07-13 04:09:00,589 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-2] results.size: 0
+2020-07-13 04:09:00,595 WARN org.springframework.context.support.ResourceBundleMessageSource [http-nio-8090-exec-2] ResourceBundle [Messages] not found for MessageSource: Can't find bundle for base name Messages, locale es_419
+2020-07-13 04:09:00,595 WARN org.springframework.context.support.ResourceBundleMessageSource [http-nio-8090-exec-2] ResourceBundle [Messages] not found for MessageSource: Can't find bundle for base name Messages, locale es_419
+2020-07-13 04:09:00,596 WARN org.springframework.context.support.ResourceBundleMessageSource [http-nio-8090-exec-2] ResourceBundle [Messages] not found for MessageSource: Can't find bundle for base name Messages, locale es_419
+2020-07-13 04:09:00,596 WARN org.springframework.context.support.ResourceBundleMessageSource [http-nio-8090-exec-2] ResourceBundle [Messages] not found for MessageSource: Can't find bundle for base name Messages, locale es_419
+2020-07-13 04:09:03,099 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-7] GET - initCreationForm: /cliente/nuevo
+2020-07-13 04:09:03,100 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-7] cliente: Cliente(id=null, name=null, lastName=null, email=null, password=null)
+2020-07-13 04:09:20,147 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-1] POST - processCreationForm: /cliente/nuevo
+2020-07-13 04:09:20,148 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-1] cliente: Cliente(id=null, name=Ariana, lastName=Torres, email=fadsf@fdsaf.com, password=1234124)
+2020-07-13 04:09:20,148 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-1] result.hasErrors(): false
+2020-07-13 04:09:20,178 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8090-exec-1] SQL Error: 1062, SQLState: 23000
+2020-07-13 04:09:20,178 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8090-exec-1] Duplicate entry 'fadsf@fdsaf.com' for key 'cli_email_UNIQUE'
+2020-07-13 04:09:20,184 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8090-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [cli_email_UNIQUE]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement] with root cause
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'fadsf@fdsaf.com' for key 'cli_email_UNIQUE'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1347)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3235)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3760)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:107)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.util.LinkedHashMap.forEach(Unknown Source)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1352)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:443)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3202)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2370)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:534)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:631)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:178)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy152.save(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy100.save(Unknown Source)
+	at ar.edu.davinci.dvds20201cg1.servicio.ClienteServicio.grabarCliente(ClienteServicio.java:62)
+	at ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador.processCreationForm(ClienteThymeleafControlador.java:142)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2020-07-13 04:09:39,183 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-8] POST - processCreationForm: /cliente/nuevo
+2020-07-13 04:09:39,184 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-8] cliente: Cliente(id=null, name=Pablo, lastName=Perez, email=fadsf@fdsaf.com, password=1234124)
+2020-07-13 04:09:39,184 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-8] result.hasErrors(): false
+2020-07-13 04:09:39,190 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8090-exec-8] SQL Error: 1062, SQLState: 23000
+2020-07-13 04:09:39,190 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8090-exec-8] Duplicate entry 'fadsf@fdsaf.com' for key 'cli_email_UNIQUE'
+2020-07-13 04:09:39,194 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8090-exec-8] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [cli_email_UNIQUE]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement] with root cause
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'fadsf@fdsaf.com' for key 'cli_email_UNIQUE'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1347)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3235)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3760)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:107)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.util.LinkedHashMap.forEach(Unknown Source)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1352)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:443)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3202)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2370)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:534)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:631)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:178)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy152.save(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy100.save(Unknown Source)
+	at ar.edu.davinci.dvds20201cg1.servicio.ClienteServicio.grabarCliente(ClienteServicio.java:62)
+	at ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador.processCreationForm(ClienteThymeleafControlador.java:142)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2020-07-13 04:09:44,718 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-4] POST - processCreationForm: /cliente/nuevo
+2020-07-13 04:09:44,718 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-4] cliente: Cliente(id=null, name=fasdfa, lastName=fasdf, email=fadsf@fdsaf.com, password=1234124)
+2020-07-13 04:09:44,719 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-4] result.hasErrors(): false
+2020-07-13 04:09:44,724 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8090-exec-4] SQL Error: 1062, SQLState: 23000
+2020-07-13 04:09:44,724 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8090-exec-4] Duplicate entry 'fadsf@fdsaf.com' for key 'cli_email_UNIQUE'
+2020-07-13 04:09:44,728 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8090-exec-4] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [cli_email_UNIQUE]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement] with root cause
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'fadsf@fdsaf.com' for key 'cli_email_UNIQUE'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1347)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3235)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3760)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:107)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.util.LinkedHashMap.forEach(Unknown Source)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1352)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:443)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3202)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2370)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:534)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:631)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:178)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy152.save(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy100.save(Unknown Source)
+	at ar.edu.davinci.dvds20201cg1.servicio.ClienteServicio.grabarCliente(ClienteServicio.java:62)
+	at ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador.processCreationForm(ClienteThymeleafControlador.java:142)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2020-07-13 04:09:50,867 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-7] POST - processCreationForm: /cliente/nuevo
+2020-07-13 04:09:50,868 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-7] cliente: Cliente(id=null, name=fasdfa, lastName=fasdf, email=fadsf@fdsaf.com, password=fasdfa)
+2020-07-13 04:09:50,868 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-7] result.hasErrors(): false
+2020-07-13 04:09:50,873 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8090-exec-7] SQL Error: 1062, SQLState: 23000
+2020-07-13 04:09:50,873 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8090-exec-7] Duplicate entry 'fadsf@fdsaf.com' for key 'cli_email_UNIQUE'
+2020-07-13 04:09:50,877 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8090-exec-7] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [cli_email_UNIQUE]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement] with root cause
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'fadsf@fdsaf.com' for key 'cli_email_UNIQUE'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1347)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3235)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3760)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:107)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.util.LinkedHashMap.forEach(Unknown Source)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1352)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:443)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3202)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2370)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:534)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:631)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:178)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy152.save(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy100.save(Unknown Source)
+	at ar.edu.davinci.dvds20201cg1.servicio.ClienteServicio.grabarCliente(ClienteServicio.java:62)
+	at ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador.processCreationForm(ClienteThymeleafControlador.java:142)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2020-07-13 04:09:53,154 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-9] POST - processCreationForm: /cliente/nuevo
+2020-07-13 04:09:53,155 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-9] cliente: Cliente(id=null, name=fasdfa, lastName=fasdf, email=fadsf@fdsaf.com, password=fasdfa)
+2020-07-13 04:09:53,155 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-9] result.hasErrors(): false
+2020-07-13 04:09:53,160 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8090-exec-9] SQL Error: 1062, SQLState: 23000
+2020-07-13 04:09:53,160 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8090-exec-9] Duplicate entry 'fadsf@fdsaf.com' for key 'cli_email_UNIQUE'
+2020-07-13 04:09:53,165 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8090-exec-9] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [cli_email_UNIQUE]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement] with root cause
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'fadsf@fdsaf.com' for key 'cli_email_UNIQUE'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1347)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3235)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3760)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:107)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.util.LinkedHashMap.forEach(Unknown Source)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1352)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:443)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3202)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2370)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:534)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:631)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:178)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy152.save(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy100.save(Unknown Source)
+	at ar.edu.davinci.dvds20201cg1.servicio.ClienteServicio.grabarCliente(ClienteServicio.java:62)
+	at ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador.processCreationForm(ClienteThymeleafControlador.java:142)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2020-07-13 04:10:20,231 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-7] POST - processCreationForm: /cliente/nuevo
+2020-07-13 04:10:20,232 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-7] cliente: Cliente(id=null, name=fasdfa, lastName=fasdf, email=erwtw@grgge.com, password=fasdfa)
+2020-07-13 04:10:20,232 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-7] result.hasErrors(): false
+2020-07-13 04:10:20,253 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-9] GET - showCliente: /cliente/{clienteId}  - clienteId: 11
+2020-07-13 04:10:20,256 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-9] cliente: Cliente(id=11, name=fasdfa, lastName=fasdf, email=erwtw@grgge.com, password=fasdfa)
+2020-07-13 04:10:45,089 WARN org.springframework.context.support.ResourceBundleMessageSource [http-nio-8090-exec-7] ResourceBundle [Messages] not found for MessageSource: Can't find bundle for base name Messages, locale es_419
+2020-07-13 04:10:45,090 WARN org.springframework.context.support.ResourceBundleMessageSource [http-nio-8090-exec-7] ResourceBundle [Messages] not found for MessageSource: Can't find bundle for base name Messages, locale es_419
+2020-07-13 04:10:57,524 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-10] GET - initFindForm: /cliente/buscar
+2020-07-13 04:11:11,599 WARN org.springframework.context.support.ResourceBundleMessageSource [http-nio-8090-exec-1] ResourceBundle [Messages] not found for MessageSource: Can't find bundle for base name Messages, locale es_419
+2020-07-13 04:11:11,599 WARN org.springframework.context.support.ResourceBundleMessageSource [http-nio-8090-exec-1] ResourceBundle [Messages] not found for MessageSource: Can't find bundle for base name Messages, locale es_419
+2020-07-13 04:11:14,334 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-9] GET - initFindForm: /cliente/buscar
+2020-07-13 04:11:30,712 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-3] GET - showClientePage  - /cliente/list
+2020-07-13 04:11:30,716 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-3] clientes.size: 4
+2020-07-13 04:14:51,578 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [Thread-352] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-13 04:14:51,580 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-352] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-13 04:14:51,583 INFO com.zaxxer.hikari.HikariDataSource [Thread-352] HikariPool-1 - Shutdown initiated...
+2020-07-13 04:14:51,634 INFO com.zaxxer.hikari.HikariDataSource [Thread-352] HikariPool-1 - Shutdown completed.
+2020-07-13 04:14:51,893 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting DvDs20201cG1Application on DESKTOP-9AMUT3Q with PID 8268 (C:\Users\pablo\Documents\DA VINCI\Cuatrimestre 3\JAVA\dv-ds-20201c-g1\target\classes started by pablo in C:\Users\pablo\Documents\DA VINCI\Cuatrimestre 3\JAVA\dv-ds-20201c-g1)
+2020-07-13 04:14:51,894 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-13 04:14:51,894 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-07-13 04:14:52,476 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-13 04:14:52,510 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 34ms. Found 4 JPA repository interfaces.
+2020-07-13 04:14:52,730 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8090 (http)
+2020-07-13 04:14:52,730 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8090"]
+2020-07-13 04:14:52,731 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-07-13 04:14:52,731 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-13 04:14:52,758 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-07-13 04:14:52,758 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 858 ms
+2020-07-13 04:14:52,790 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Starting...
+2020-07-13 04:14:52,795 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Start completed.
+2020-07-13 04:14:52,795 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/dv-ds-20201c-g1?serverTimezone=UTC'
+2020-07-13 04:14:52,840 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-13 04:14:52,854 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-13 04:14:52,865 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-07-13 04:14:53,147 WARN org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl [task-1] GenerationTarget encountered exception accepting command : Error executing DDL "alter table orden_items add constraint FK1s91sn6abmwu84ac88ie8two foreign key (ori_ord_id) references ordenes (ord_id)" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table orden_items add constraint FK1s91sn6abmwu84ac88ie8two foreign key (ori_ord_id) references ordenes (ord_id)" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:433)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:249)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1249)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.sql.SQLException: Can't create table `dv-ds-20201c-g1`.`#sql-1f68_2c` (errno: 150 "Foreign key constraint is incorrectly formed")
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 common frames omitted
+2020-07-13 04:14:53,201 WARN org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl [task-1] GenerationTarget encountered exception accepting command : Error executing DDL "alter table orden_items add constraint FKfrrxyiyy2sxkffpjwtullsvs foreign key (odi_pro_id) references productos (pro_id)" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table orden_items add constraint FKfrrxyiyy2sxkffpjwtullsvs foreign key (odi_pro_id) references productos (pro_id)" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:433)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:249)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1249)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.sql.SQLException: Can't create table `dv-ds-20201c-g1`.`#sql-1f68_2c` (errno: 150 "Foreign key constraint is incorrectly formed")
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 common frames omitted
+2020-07-13 04:14:53,223 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-13 04:14:53,224 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-13 04:14:53,264 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [task-2] LiveReload server is running on port 35729
+2020-07-13 04:14:53,293 INFO ar.edu.davinci.dvds20201cg1.WebConfig [restartedMain] Template Resolver
+2020-07-13 04:14:53,293 INFO ar.edu.davinci.dvds20201cg1.WebConfig [restartedMain] Template Resolver result: org.thymeleaf.templateresolver.ClassLoaderTemplateResolver@5a14dbc
+2020-07-13 04:14:53,294 INFO ar.edu.davinci.dvds20201cg1.WebConfig [restartedMain] Spring Template Engine
+2020-07-13 04:14:53,295 INFO ar.edu.davinci.dvds20201cg1.WebConfig [restartedMain] Spring Template Engine result: org.thymeleaf.spring5.SpringTemplateEngine@4cf67b11
+2020-07-13 04:14:53,295 INFO ar.edu.davinci.dvds20201cg1.WebConfig [restartedMain] View Resolver
+2020-07-13 04:14:53,296 INFO ar.edu.davinci.dvds20201cg1.WebConfig [restartedMain] View Resolver result: org.thymeleaf.spring5.view.ThymeleafViewResolver@48bd0b3b
+2020-07-13 04:14:53,314 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-13 04:14:53,359 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [restartedMain] Adding welcome page template: index
+2020-07-13 04:14:53,519 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 13 endpoint(s) beneath base path '/actuator'
+2020-07-13 04:14:53,534 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8090"]
+2020-07-13 04:14:53,538 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8090 (http) with context path ''
+2020-07-13 04:14:53,539 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositoriesâ€¦
+2020-07-13 04:14:53,586 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-07-13 04:14:53,592 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started DvDs20201cG1Application in 1.745 seconds (JVM running for 639.52)
+2020-07-13 04:14:53,595 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-07-13 04:15:07,355 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8090-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-13 04:15:07,355 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8090-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-07-13 04:15:07,357 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8090-exec-1] Completed initialization in 1 ms
+2020-07-13 04:15:07,359 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-1] GET - initFindForm: /cliente/buscar
+2020-07-13 04:15:09,859 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-4] GET - initFindForm: /cliente/buscar
+2020-07-13 04:15:11,874 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-8] GET - initFindForm: /cliente/buscar
+2020-07-13 04:15:12,840 WARN org.springframework.context.support.ResourceBundleMessageSource [http-nio-8090-exec-2] ResourceBundle [Messages] not found for MessageSource: Can't find bundle for base name Messages, locale es_419
+2020-07-13 04:15:12,841 WARN org.springframework.context.support.ResourceBundleMessageSource [http-nio-8090-exec-2] ResourceBundle [Messages] not found for MessageSource: Can't find bundle for base name Messages, locale es_419
+2020-07-13 04:15:14,666 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-10] GET - initFindForm: /cliente/buscar
+2020-07-13 04:15:19,206 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-6] GET - viewHomePage - /index
+2020-07-13 04:15:20,322 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-9] GET - showClientePage  - /cliente/list
+2020-07-13 04:15:20,329 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-9] clientes.size: 4
+2020-07-13 04:15:24,032 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-4] GET - showNewClientePage - /cliente/new
+2020-07-13 04:15:24,033 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-4] cliente: Cliente(id=null, name=null, lastName=null, email=null, password=null)
+2020-07-13 04:15:45,035 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-3] POST - saveCliente - /cliente/save
+2020-07-13 04:15:45,036 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-3] cliente: Cliente(id=null, name=Ariana, lastName=Torres, email=ariana.torres@hotmail.com, password=123144)
+2020-07-13 04:15:45,051 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-5] GET - showClientePage  - /cliente/list
+2020-07-13 04:15:45,054 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-5] clientes.size: 5
+2020-07-13 04:15:49,972 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-7] GET - showNewClientePage - /cliente/new
+2020-07-13 04:15:49,973 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-7] cliente: Cliente(id=null, name=null, lastName=null, email=null, password=null)
+2020-07-13 04:16:13,272 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-10] POST - saveCliente - /cliente/save
+2020-07-13 04:16:13,272 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-10] cliente: Cliente(id=null, name=Elizabeth, lastName=Denett, email=eli.denett@gmail.com, password=2141refs)
+2020-07-13 04:16:13,325 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-1] GET - showClientePage  - /cliente/list
+2020-07-13 04:16:13,329 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-1] clientes.size: 6
+2020-07-13 04:16:17,061 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-4] GET - showNewClientePage - /cliente/new
+2020-07-13 04:16:17,061 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-4] cliente: Cliente(id=null, name=null, lastName=null, email=null, password=null)
+2020-07-13 04:16:31,107 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-3] POST - saveCliente - /cliente/save
+2020-07-13 04:16:31,107 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-3] cliente: Cliente(id=null, name=Pablo, lastName=Perez, email=pablo.perez@hotmail.com, password=235423sdfoapifh)
+2020-07-13 04:16:31,118 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-5] GET - showClientePage  - /cliente/list
+2020-07-13 04:16:31,121 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-5] clientes.size: 7
+2020-07-13 04:16:34,921 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-7] GET - showEditClientePage - /cliente/edit/{id}
+2020-07-13 04:16:34,922 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-7] cliente: 3
+2020-07-13 04:16:40,728 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-10] POST - saveCliente - /cliente/save
+2020-07-13 04:16:40,729 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-10] cliente: Cliente(id=3, name=gdfgbvbvnfgsjghsfgh, lastName=fadsfa, email=fasdfa@fasd, password=fads)
+2020-07-13 04:16:40,765 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-1] GET - showClientePage  - /cliente/list
+2020-07-13 04:16:40,768 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-1] clientes.size: 7
+2020-07-13 04:16:43,221 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-8] GET - deleteCliente - cliente/delete/{id}
+2020-07-13 04:16:43,222 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-8] cliente: 3
+2020-07-13 04:16:43,239 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-6] GET - showClientePage  - /cliente/list
+2020-07-13 04:16:43,241 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-6] clientes.size: 6
+2020-07-13 04:16:46,464 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-9] GET - deleteCliente - cliente/delete/{id}
+2020-07-13 04:16:46,465 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-9] cliente: 11
+2020-07-13 04:16:46,504 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-2] GET - showClientePage  - /cliente/list
+2020-07-13 04:16:46,507 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-2] clientes.size: 5
+2020-07-13 04:16:47,538 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-4] GET - deleteCliente - cliente/delete/{id}
+2020-07-13 04:16:47,538 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-4] cliente: 5
+2020-07-13 04:16:47,550 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-3] GET - showClientePage  - /cliente/list
+2020-07-13 04:16:47,554 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-3] clientes.size: 4
+2020-07-13 04:16:54,110 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteSimpleControlador [http-nio-8090-exec-5] GET - viewHomePage - /index
+2020-07-13 04:18:16,191 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-10] GET - processFindForm: /clientes
+2020-07-13 04:18:16,192 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-10] cliente: Cliente(id=null, name=null, lastName=, email=null, password=null)
+2020-07-13 04:18:16,195 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-10]  por lastName null results.size: 4
+2020-07-13 04:18:16,195 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-10] results.size: 4
+2020-07-13 04:18:16,200 WARN org.springframework.context.support.ResourceBundleMessageSource [http-nio-8090-exec-10] ResourceBundle [Messages] not found for MessageSource: Can't find bundle for base name Messages, locale es_419
+2020-07-13 04:18:21,334 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-9] GET - initFindForm: /cliente/buscar
+2020-07-13 04:18:24,367 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-3] GET - processFindForm: /clientes
+2020-07-13 04:18:24,367 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-3] cliente: Cliente(id=null, name=null, lastName=, email=null, password=null)
+2020-07-13 04:18:24,370 INFO ar.edu.davinci.dvds20201cg1.controlador.view.ClienteThymeleafControlador [http-nio-8090-exec-3]  por lastName null results.size: 4
